@@ -5,8 +5,8 @@ import popl2015.Linda.*;
 public class BouncerTest {
 	public static void main(String[] args) {
 		TupleSpace ts = new TupleSpace();
-		Bouncer ping = new Bouncer(ts, "Ping", "Pong", 12);
-		Bouncer pong = new Bouncer(ts, "Pong", "Ping", 12);
+		Bouncer ping = new Bouncer(ts, "Ping", "Pong", 10);
+		Bouncer pong = new Bouncer(ts, "Pong", "Ping", 10);
 		//Start the bouncer processes:
 		ping.start();
 		pong.start();

@@ -28,6 +28,30 @@ public class MonoVarTestingThread<T> implements Runnable{
 			if (id == 2){
 				var.becomes(ThreadTestValue);
 			}
+			//the 1 second sleep is used so the console output isn't huge
+			if (id == 3){
+				
+				while(true){
+					var.consume();
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			//the 1 second sleep is used so the console output isn't huge
+			if (id == 4){
+				
+				while(true){
+					var.becomes(ThreadTestValue);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
 			
 		}
 

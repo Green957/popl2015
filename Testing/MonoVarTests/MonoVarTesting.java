@@ -30,7 +30,7 @@ public class MonoVarTesting {
 	//t2 calls becomes(threadTestVal) once
 	Thread t2 = new Thread(new MonoVarTestingThread<Integer>(2, testClass,threadTestVal));
 	
-	
+
 	@Test
 	public void initialisationTest(){
 		assertEquals("Value should be initialised as null",null,testClass.getValue());
@@ -65,4 +65,7 @@ public class MonoVarTesting {
 		testClass.consume();
 		assertEquals("Value should be initialised as null",null,testClass.getValue());
 	}
+	
+
+	
 }

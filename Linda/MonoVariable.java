@@ -13,12 +13,15 @@ public class MonoVariable<T> implements aMonoVariable<T>{
 			notifyAll();
 		}
 		else {
+			
+			System.out.println("become " + val + " waiting");
 			try {
-				System.out.println("become " + val + " waiting");
 				wait();
 			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 			//try becoming again when the thread is unblocked
 			becomes(val);
 		}
@@ -30,8 +33,9 @@ public class MonoVariable<T> implements aMonoVariable<T>{
 		System.out.println("Attempting to consume");
 		
 		//we need to clear value but also return it so we store its value here
-		T tempVal;
+		
 		if (value != null){
+			T tempVal;
 			tempVal = value;
 			value = null;
 			System.out.println("Value consumed");
@@ -57,7 +61,7 @@ public class MonoVariable<T> implements aMonoVariable<T>{
 		
 	}
 	
-	//for testing purposes
+	//for testing purposes only
 	public T getValue(){
 		return value;
 	}

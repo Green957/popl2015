@@ -26,7 +26,7 @@ public class Template implements aTemplate {
 				if (elements.get(i) instanceof Hole){
 					//only compare types for holes
 					if (elements.get(i).type() == t.nth(i).type()){
-						
+						//pass
 					}
 					else {
 						return false;
@@ -34,17 +34,16 @@ public class Template implements aTemplate {
 					
 				}
 				
-				else if(elements.get(i).equals(t.nth(i))){
-					//compare fully for tuples
-				}
+				//regular TypedValues can be compared with equals()
 				else {
-					return false;
+					return (elements.get(i).equals(t.nth(i)));
 				}
+				
 			}
 		}
 		
 		
-		//this means the length matches and all elements match
+		//if the conditionals reach here (have not returned false) then the length matches and all elements match
 		return true;
 	
 	}
